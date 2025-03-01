@@ -18,7 +18,7 @@ export default function WallPaper() {
     if (bgRef.current) {
       bgRef.current.style.backgroundImage = `url(${bgImage})`;
       bgRef.current.style.backgroundSize = "cover";
-      bgRef.current.style.transition = "background 1s ease";
+      bgRef.current.style.transition = "background 0.5s ease";
     }
   }, [bgImage]);
 
