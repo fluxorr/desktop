@@ -10,7 +10,12 @@ export default function WallPaper() {
 
   const images = [
     "https://images.unsplash.com/photo-1738969773091-abcf274f7e0a?q=80&w=3000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "https://github.com/BitterSweetcandyshop/wallpapers/blob/main/favs/Smoking-Couple.jpg?raw=true",
+    "https://github.com/BitterSweetcandyshop/wallpapers/blob/main/unix_sorted/anime/jojo/VmmXijc-64388.png?raw=true",
     "https://github.com/fluxorr/desktop/blob/main/src/assets/hands.jpeg?raw=true",
+    "https://github.com/BitterSweetcandyshop/wallpapers/blob/main/unix_sorted/cats/wvunc-598CF.jpg?raw=true",
+    "https://github.com/BitterSweetcandyshop/wallpapers/blob/main/unix_sorted/meme/amogus-477A7.jpg?raw=true",
+    "https://github.com/BitterSweetcandyshop/wallpapers/blob/main/unix_sorted/meme/foh0n427ez471-37B0D.png?raw=true",
     "https://images.unsplash.com/photo-1738831920727-73e17adc5b87?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "https://images.unsplash.com/photo-1739372425262-1642d83a10c5?q=80&w=3131&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   ];
@@ -21,6 +26,10 @@ export default function WallPaper() {
     if (bgRef.current) {
       bgRef.current.style.backgroundImage = `url(${bgImage})`;
       bgRef.current.style.backgroundSize = "cover";
+      bgRef.current.style.backgroundPosition = "center";
+      bgRef.current.style.backgroundRepeat = "no-repeat";
+      bgRef.current.style.height = "100vh";
+      bgRef.current.style.width = "100%";
       bgRef.current.style.transition = "background 0.5s ease";
     }
   }, [bgImage]);
@@ -76,6 +85,9 @@ export default function WallPaper() {
     setIsMaximized(!isMaximized);
   };
 
+  // Dynamically calculate maxHeight based on full-screen state
+  const maxHeight = isMaximized ? size.height - 100 : 370;
+
   return (
     <Rnd
       position={position}
@@ -85,20 +97,13 @@ export default function WallPaper() {
         setSize({ width: ref.offsetWidth, height: ref.offsetHeight });
         setPosition(pos);
       }}
-      enableResizing={{
-        top: false,
-        bottom: true,
-        bottomRight: true,
-        left: false,
-        right: true,
-        topLeft: false,
-        topRight: false,
-        bottomLeft: true,
-      }}
-      className="border border-gray-600 rounded-lg shadow-2xl bg-black/50 backdrop-blur-md"
+      enableResizing={false}
+      className={`border border-gray-600 rounded-lg shadow-2xl bg-black/50 backdrop-blur-md ${
+        isMaximized ? "z-[9999] fixed" : "z-10"
+      }`}
     >
       {/* title bar */}
-      <div className="relative flex items-center bg-gray-200 h-8 px-3 rounded-t-lg">
+      <div className="relative flex items-center bg-gray-900 h-8 px-3 rounded-t-lg">
         {/*  Buttons Left Side */}
         <div className="flex gap-2">
           <div className="w-3 h-3 bg-red-500 rounded-full"></div>
@@ -114,8 +119,11 @@ export default function WallPaper() {
         </div>
       </div>
 
-      {/* Wallpaper selection content */}
-      <div className="p-4">
+      {/* Wallpaper selection content with dynamic max height */}
+      <div
+        className="p-4 overflow-auto"
+        style={{ maxHeight: `${maxHeight}px` }}
+      >
         <div className="grid grid-cols-2 gap-2">
           {images.map((img, index) => (
             <label key={index} className="cursor-pointer">

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Rnd } from "react-rnd";
 import image from "../assets/image.png";
 
@@ -105,11 +105,13 @@ export default function Photos() {
         }
       }
       disableDragging={isFullScreen}
-      className="overflow-hidden rounded-sm cursor-grabbing border-[0.25px] border-slate-500  "
+      className={`overflow-hidden rounded-sm cursor-grabbing border-[0.25px] border-slate-500  ${
+        isFullScreen ? "z-[9999] fixed" : "z-10"
+      }`}
     >
       <div className="flex flex-col h-full">
         {/* title bar */}
-        <div className="bg-gray-200 h-8 flex items-center px-4 border-b border-gray-200 rounded-t-lg">
+        <div className="bg-gray-900 h-8 flex items-center px-4 border-b border-gray-200 rounded-t-lg">
           <div className="flex space-x-2 items-center">
             {/* close button TODO : Add close functionality */}
             <div className="w-3 h-3 rounded-full  bg-red-500 flex items-center justify-center cursor-pointer">
