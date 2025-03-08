@@ -1,17 +1,18 @@
 import "./App.css";
 import WallPaper from "./components/WallPaper";
 import Photos from "./components/Photos";
+import Icons from "./components/Icons";
+import Calculator from "./components/Calculator";
+import Notepad from "./components/NotePad";
 
 function App() {
   return (
     <div>
-      <p>[] Calculator</p>
-      <p>[] Calendar</p>
-      <p>[] Close windows</p>
-      <p>[] dock</p>
-      <p>[] icons (many)</p>
+      <Calculator></Calculator>
+      <Icons></Icons>
       <WallPaper></WallPaper>
       <Photos></Photos>
+      <Notepad></Notepad>
     </div>
   );
 }

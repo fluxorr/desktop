@@ -42,7 +42,7 @@ export default function Photos() {
     setLoaded(true);
   }, []);
 
-  // Save state to localStorage
+  // Save "state" to localStorage
   useEffect(() => {
     if (loaded) {
       localStorage.setItem("photoSize", JSON.stringify(size));
@@ -54,7 +54,7 @@ export default function Photos() {
   // Toggle fullscreen mode
   const toggleFullScreen = () => {
     if (!isFullScreen) {
-      // Save current state before going fullscreen
+      // Save current "state" before going fullscreen
       setPreviousState({
         size: { ...size },
         position: { ...position },
