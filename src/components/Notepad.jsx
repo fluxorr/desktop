@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Rnd } from "react-rnd";
 
 export default function Notepad() {
-  const [position, setPosition] = useState({ x: 200, y: 100 });
+  const [position, setPosition] = useState({ x: 110, y: 520 });
   const [size, setSize] = useState({ width: 500, height: 300 });
   const [text, setText] = useState(
     "Hey this is a desktop as a site project built to learn basic stuff about draggable and resizable components. Still cant get how to get that z-index working lol :( \nStill a lot of things to implement. \nYou can edit this text and it will be saved even if you refresh  "

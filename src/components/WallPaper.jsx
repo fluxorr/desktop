@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Rnd } from "react-rnd";
 
 export default function WallPaper() {
-  const [position, setPosition] = useState({ x: 250, y: 50 });
+  const [position, setPosition] = useState({ x: 500, y: 40 });
   const [size, setSize] = useState({ width: 724, height: 420 });
   const [isMaximized, setIsMaximized] = useState(false);
   const [loaded, setLoaded] = useState(false);

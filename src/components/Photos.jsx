@@ -4,7 +4,7 @@ import image from "../assets/image.png";
 
 export default function Photos() {
   const [size, setSize] = useState({ width: 500, height: 350 });
-  const [position, setPosition] = useState({ x: 150, y: 50 });
+  const [position, setPosition] = useState({ x: 900, y: 570 });
   const [loaded, setLoaded] = useState(false);
   const [isFullScreen, setIsFullScreen] = useState(false);
   const [previousState, setPreviousState] = useState(null);
